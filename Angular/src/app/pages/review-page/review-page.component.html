@@ -1,0 +1,64 @@
+<div class="first-text">
+  <p>HAI TOTALIZZATO <span>{{MovieServ.rating}}</span> PUNTI</p>
+</div>
+<div class="first-text">
+  <p>This is the correct order of the films</p>
+</div>
+
+<div class="list">
+  <div class="box" *ngFor="let movieElement of MovieServ.orderedMoviz; let i = index">
+    <button (click)="open(filmCart, MovieServ.orderedMoviz[numChange(i)].id)">
+      <img  src="https://image.tmdb.org/t/p/w185/{{movieElement.poster_path}}" [alt]="movieElement.title"> 
+    </button>
+  </div>
+</div>
+
+<ng-template #filmCart let-c="close" let-d="dismiss">
+  <div class="card">
+    <div class="row g-0">
+      <div class="card-img">
+        <button class="close-btn" (click)="d('close-click')">❌</button>
+        <img class="img-fluid rounded-start" src="https://image.tmdb.org/t/p/w185/{{MovieServ.orderedMoviz[num].poster_path}}">
+        <div class="scale"><app-button class="btn-l" btn_text="Review" (click)="open(content, MovieServ.orderedMoviz[num].id)"></app-button></div>
+        <div class="scale"><app-button class="btn-r" btn_text="Details" (click)="justOpenTempl(details)"></app-button></div>
+      </div>
+    </div>
+  </div>
+  </ng-template>
+
+  <ng-template #details let-d="dismiss">
+
+    <div style="position: relative;">
+      <button class="close-btn" (click)="d('close-click')">❌</button>
+      <div class="card-img card-body" style="width: 100%; max-height: 100%;">
+        <h5 class="card-title">{{MovieServ.orderedMoviz[num].original_title}}</h5>
+        <p class="card-text">{{MovieServ.orderedMoviz[num].overview}}</p>
+        <p class="card-text">Budget: {{MovieServ.orderedMoviz[num].budget}}</p>
+        <p class="card-text">Revenue: {{MovieServ.orderedMoviz[num].revenue}}</p>
+        <p class="card-text">Release_date: {{MovieServ.orderedMoviz[num].release_date}}</p>
+        <p class="card-text">Popularity: {{MovieServ.orderedMoviz[num].popularity}}</p>
+        <p class="card-text adult">{{adultsFilm(MovieServ.orderedMoviz[num].adult)}}</p>
+      </div>
+    </div>
+    
+    </ng-template>
+
+    <ng-template #content let-c="close" let-d="dismiss">
+
+      <div class="modal-header">
+        <h4 class="modal-title" >{{MovieServ.orderedMoviz[num].original_title}}</h4>
+        <button class="close-btn" type="button" (click)="d('Cross click')">❌</button>
+      </div>
+      <div class="modal-body">
+        <form class="format" #data="ngForm" (ngSubmit)="onSubmit(data)">
+          <ngb-rating class="rating" [(rate)]="currentRate" ngModel name="rating"></ngb-rating>
+          <hr />
+          <pre>Rate: <b>{{currentRate}}</b></pre>
+          <mat-form-field class="review" appearance="fill">
+            <input placeholder="This Film Is Wonderful! I love It!!" matInput type="text" ngModel name="comment" required />
+          </mat-form-field>
+            <app-button class="btn-cent" btn_text="Save" type="submit" (click)="c('Save click')"></app-button>
+        </form>
+      </div>
+    
+    </ng-template>

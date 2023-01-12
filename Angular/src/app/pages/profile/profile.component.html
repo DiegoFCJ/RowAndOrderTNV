@@ -1,0 +1,37 @@
+<div class="first-text">
+  <p class="txt-size">Questi sono i film che hai scelto come preferiti</p>
+</div>
+<div class="up-father row row-cols-md-3 g-4">
+    <div class="col card-father" *ngFor="let movieEl of movieServ.favourites;">
+        <div class="card">
+          <img src="https://image.tmdb.org/t/p/w185{{movieEl.poster_path}}" class="card-img"/>
+          <div class="card-img-overlay">
+            <div class="scale">
+              <app-button btn_text="Review" (click)="movieServ.openOneFav(content, movieServ.getFavouriteMovieByMovieId(movieEl.id))"></app-button>
+            </div>
+            
+          </div>
+          <div class="card-footer">
+            <small class="card-title under-card">{{movieEl.title}}</small>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <ng-template #content let-c="close" let-d="dismiss">
+  
+    <div class="body">
+      <h4>{{movieServ.singleFavourite.title}}</h4>
+      <button class="close-btn" type="button" (click)="d('Cross click')">❌</button>
+      <hr>
+      <p>Vote</p>
+      <ngb-rating class="rating" [(rate)]="movieServ.singleFavourite.rating"></ngb-rating>
+      <hr>
+      <p>Comment</p>
+      <p class="review">{{movieServ.singleFavourite.comment}}</p>
+      <div class="del-btn">
+        <app-button btn_text="Delete" (click)="deleteFavourite()" (click)="d('Cross click')"></app-button>
+      </div>
+    </div>
+    
+  </ng-template>

@@ -1,0 +1,39 @@
+
+<div class="titoloGioco">
+    <h1> <span>Classifica</span> </h1>
+  </div>
+  
+
+<div id="rank" class="mat-elevation-z8">
+
+
+    <table mat-table #table [dataSource]="usersOrdered">
+
+        <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef> # </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+        </ng-container>
+        <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef> Giocatore </th>
+            <td mat-cell *matCellDef="let element"> {{element.userName | titlecase}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="score">
+            <th mat-header-cell *matHeaderCellDef> Punti </th>
+            <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef> Data </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdAt | date:'dd-MM-yy - HH:mm'}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+
+
+
+
