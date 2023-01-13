@@ -4,20 +4,17 @@
         <div class="row full-height justify-content-center">
           <div class="col-12 text-center align-self-center py-5">
             <div class="section pb-5 pt-5 pt-sm-2 text-center">
-              <h6 class="mb-0 pb-3">
-                <span>Login __ Or </span><span>__ Register </span>
-              </h6>
-              <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+              <h6 class="mb-0 pb-3"><span style="margin-right: 20px;">Entra</span><span style="margin-left: 20px;">Registrati</span></h6>
+              <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
               <label for="reg-log"></label>
               
               <div class="card-3d-wrap mx-auto">
                 <div class="card-3d-wrapper">
   
                   <div class="card-front">
-  
                       <div class="center-wrap">
                           <div class="section text-center">
-                              <h4 class="mb-4 pb-3">Log In</h4>
+                              <h4 class="mb-4 pb-3">Entra</h4>
                               <form #formLogin="ngForm" (ngSubmit)="login(formLogin)">
                                   <div class="form-group">
                                       <input [ngModel] name="username" type="text" class="form-style" placeholder="Your Email/Username" required #username="ngModel" autocomplete="off"/>
@@ -28,47 +25,47 @@
                                       <i class="input-icon uil uil-lock-alt">➥</i>
                                   </div>
                                   <div style="padding: 0;" class="form-group">
-                                      <button type="submit" class="form-control btn mt-4">login</button>
+                                      <button type="submit" class="form-control btn mt-4">Entra</button>
                                   </div>
                               </form>
                           </div>
                       </div>
-  
                   </div>
                   
-                    <div class="card-back">
-                      <div class="center-wrap">
+                  <div class="card-back">
+                    <div class="center-wrap">
   
-                          <div class="section text-center">
-                            <h4 class="mb-4 pb-3">Sign Up</h4>
-                            <form #formRegister="ngForm" (ngSubmit)="register(formRegister)">
-                              <div class="form-group">
-                                <input [ngModel] name="name" type="text" class="form-style" placeholder="Your Nome" required id="name" #name="ngModel" autocomplete="off" >
-                                <i class="input-icon uil uil-user">➥</i>
-                              </div>	
-                              <div class="form-group">
-                                <input [ngModel] name="surname" type="text" class="form-style" placeholder="Your Surname" required id="surname" #surname="ngModel" autocomplete="off"  style="margin-top: 8px; margin-bottom: 8px;">
-                                <i class="input-icon uil uil-user">➥</i>
-                              </div>	
-                              <div class="form-group">
-                                <input [ngModel] name="username" type="text" class="form-style" placeholder="Your Username" required id="username" #username="ngModel" autocomplete="off" >
-                                <i class="input-icon uil uil-user">➥</i>
-                              </div>	
-                              <div class="form-group mt-2">
-                                <input [ngModel] name="email" type="text" class="form-style" placeholder="Your Email" required id="email" #email="ngModel" autocomplete="off" >
-                                <i class="input-icon uil uil-at">➥</i>
-                              </div>	
-                              <div class="form-group mt-2">
-                                <input [ngModel] name="password" type="text" class="form-style" placeholder="Your Password" required id="password" #password="ngModel" autocomplete="off" >
-                                <i class="input-icon uil uil-lock-alt">➥</i>
-                              </div>
-                              <div class="form-group">
-                                <button type="submit" class="form-control btn mt-4" >Register</button>
-                              </div>
-                            </form>
-                          </div>
-                      </div>
+                        <div class="section text-center">
+                          <h4 class="mb-4 pb-3">Registrazione</h4>
+                          <form #formRegister="ngForm" (ngSubmit)="register(formRegister)">
+                            <div class="form-group">
+                              <input [ngModel] name="name" type="text" class="form-style" placeholder="Your Nome" required id="name" #name="ngModel" autocomplete="off" >
+                              <i class="input-icon uil uil-user">➥</i>
+                            </div>	
+                            <div class="form-group">
+                              <input [ngModel] name="surname" type="text" class="form-style" placeholder="Your Surname" required id="surname" #surname="ngModel" autocomplete="off"  style="margin-top: 8px; margin-bottom: 8px;">
+                              <i class="input-icon uil uil-user">➥</i>
+                            </div>	
+                            <div class="form-group">
+                              <input [ngModel] name="username" type="text" class="form-style" placeholder="Your Username" required id="username" #username="ngModel" autocomplete="off" >
+                              <i class="input-icon uil uil-user">➥</i>
+                            </div>	
+                            <div class="form-group mt-2">
+                              <input [ngModel] name="email" type="text" class="form-style" placeholder="Your Email" required id="email" #email="ngModel" autocomplete="off" >
+                              <i class="input-icon uil uil-at">➥</i>
+                            </div>	
+                            <div class="form-group mt-2">
+                              <input [ngModel] name="password" type="text" class="form-style" placeholder="Your Password" required id="password" #password="ngModel" autocomplete="off" >
+                              <i class="input-icon uil uil-lock-alt">➥</i>
+                            </div>
+                            <div class="form-group">
+                              <button type="submit" class="form-control btn mt-4" >Registrati</button>
+                            </div>
+                          </form>
+                        </div>
                     </div>
+                  </div>
+
                 </div>
               </div>
             </div>

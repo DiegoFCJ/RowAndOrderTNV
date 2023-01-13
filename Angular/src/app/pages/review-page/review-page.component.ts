@@ -1,13 +1,10 @@
 import { Component, OnInit, } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
-import { MovieData } from 'src/models/movie';
 import { Router } from '@angular/router';
 import { MovieAPIService } from 'src/services/movie-api.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/services/auth.service';
 import { CommentService } from 'src/services/comment.service';
-
 
 @Component({
   selector: 'app-review-page',
@@ -45,6 +42,10 @@ export class ReviewPageComponent implements OnInit {
     }else{
       return "Qui niente scene di nudo ✅";
     }
+  }
+
+  playAgain(){
+    this.router.navigate(['game']);
   }
 
 }

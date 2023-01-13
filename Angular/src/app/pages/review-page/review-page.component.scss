@@ -120,6 +120,11 @@ p span{
   translate: -50%;
 }
 
+.tasto-pos{
+  position: relative;
+  top: -380px;
+}
+
 /** ** film cards ** **/
 .card{
   width: 399px;
@@ -191,7 +196,7 @@ p span{
 /** ** film lists ** **/
 .list {
   margin-top: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   
   box-shadow: 0 5px 5px -3px black,
               0 8px 10px 1px red,

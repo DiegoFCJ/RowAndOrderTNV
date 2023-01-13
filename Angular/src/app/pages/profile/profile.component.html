@@ -1,20 +1,21 @@
 <div class="first-text">
-  <p class="txt-size">Questi sono i film che hai scelto come preferiti</p>
+  <p class="txt-size">{{printStringIfNoFav()}}</p>
 </div>
+
 <div class="up-father row row-cols-md-3 g-4">
-    <div class="col card-father" *ngFor="let movieEl of movieServ.favourites;">
-        <div class="card">
-          <img src="{{movieServ.getMoviePosterPath(movieEl.poster_path)}}" class="card-img"/>
-          <div class="card-img-overlay">
-            <div class="scale">
-              <app-button btn_text="Review" (click)="movieServ.openOneFav(content, movieServ.getFavMovieByMovieId(movieEl.id))"></app-button>
-            </div>
-            
+  <div class="col card-father" *ngFor="let movieEl of movieServ.favourites;">
+      <div class="card">
+        <img src="{{movieServ.getMoviePosterPath(movieEl.poster_path)}}" class="card-img"/>
+        <div class="card-img-overlay">
+          <div class="scale">
+            <app-button btn_text="Review" (click)="movieServ.openOneFav(content, movieServ.getFavMovieByMovieId(movieEl.id))"></app-button>
           </div>
-          <div class="card-footer">
-            <small class="card-title under-card">{{movieEl.title}}</small>
-          </div>
+          
         </div>
+        <div class="card-footer">
+          <small class="card-title under-card">{{movieEl.title}}</small>
+        </div>
+      </div>
     </div>
   </div>
   

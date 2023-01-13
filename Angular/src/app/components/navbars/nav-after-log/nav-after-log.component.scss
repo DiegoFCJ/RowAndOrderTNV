@@ -7,6 +7,7 @@
 }
 
 .logo {
+    text-shadow: -1px 1px 2px rgb(64, 62, 62);
     height: 50px;
     font-size: 2.3rem;
     color: rgb(7, 7, 7);
@@ -15,9 +16,16 @@
     left: 5px;
     top: 30%;
 }
+
 .logo span{
     color: #c02936;
 }
+
+.navbar-cont :hover{
+    text-shadow: -1px 1px 2px rgb(207, 98, 98);
+    color: #a23c43;
+}
+
 
 nav {
     height: 50px;
@@ -40,6 +48,7 @@ nav ul a {
     font-size: 18px;
 }
 nav ul a:hover {
+    text-shadow: none;
     color: red;
 }
 
@@ -48,6 +57,7 @@ nav ul a:hover {
 }
 
 .nav-link{
+    text-shadow: -1px 1px 2px rgb(64, 62, 62);
     border: none;
 }
 

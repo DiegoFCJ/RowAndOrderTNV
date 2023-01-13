@@ -34,7 +34,7 @@ export class SignPageComponent implements OnInit {
       this.authServ.login(form.value).subscribe({
         next: (response) => {
           this.authServ.saveUserInLocalStorage(response);
-          this.router.navigate(['main']);
+          this.router.navigateByUrl("/home");
         }
       })
     }

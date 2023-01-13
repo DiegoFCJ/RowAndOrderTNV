@@ -27,6 +27,14 @@ export class ProfileComponent implements OnInit {
        this.router.navigateByUrl("/sign");
      }
      this.getAllFavouriteMovies(this.authService.getCurrentUser().id);
+
+    }
+
+    printStringIfNoFav(){
+      if(this.movieServ.favourites === null){
+        return "niente preferiti"
+      }
+      return "Questi sono i film che hai scelto come preferiti"
     }
 
     getAllFavouriteMovies(id : number){

@@ -1,6 +1,5 @@
 *{
   font-family: "Raleway", sans-serif;
-  text-shadow: -1px 1px 0 white;
 }
 
 .wrapper {
@@ -17,6 +16,7 @@
 }
 
 .hero h1{
+  text-shadow: -1px 1px 2px rgb(64, 62, 62);
   margin-top: 2em;
   line-height: 3.3rem;
   font-size: 80px;
@@ -26,32 +26,37 @@
 }
 
 
-section.leftherosec{
-border: 1px solid;
-width: 200px;
+section .leftherosec{
+  width: 42%;
 }
 
 
 .subhead {
-font-size: 25px;
-font-weight: 10;
-margin-bottom: 30px;
-margin-top: 50px;
+  text-shadow: -1px 1px 2px rgb(64, 62, 62);
+  font-size: 25px;
+  font-weight: 10;
+  margin-bottom: 30px;
+  margin-top: 50px;
 }
 
 
 .heroimg {
-margin-top: 70px;
-width: 58%;
-background-image: url('../../../assets/images/postercollage.jpg');
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center center;
-border-radius: 10px;
+  margin-top: 70px;
+  width: 58%;
+  background-image: url('../../../assets/images/postercollage.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 10px;
 }
 
 
 /* bottone rosso */
+.btn-8{
+  position: absolute;
+  left: 15%;
+  text-shadow: -1px 1px 2px rgb(64, 62, 62);
+}
 
 .custom-btn {
   width: 130px;
