@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "az4Q9D0/cHIcpGWrBmAvgq632+cktEoB/3yQnQDxvqqtHU/x9NWaZj1sFkgsFQN6E20PlfvasCnTmOe0mSUkAA==",
+  "dgSpecHash": "Qxh+DJE5gK/I+r+cFiCb9UKlFM4hOSYifnpKN7czxxbokFKpkBaFY6OUwNQhF4UTN/Q15lfQP5irawETVT/Yzw==",
   "success": true,
-  "projectFilePath": "C:\\PROGRAMMAZIONE\\repositoryGitHub\\Row And Order\\Dotnet\\.Net-main\\ReviewApp.Core\\ReviewApp.Core.csproj",
+  "projectFilePath": "C:\\PROGRAMMAZIONE\\repositoryGitHub\\Row & Order\\Row-Order\\.Net-main\\ReviewApp.Core\\ReviewApp.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sleepy69\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.11\\microsoft.entityframeworkcore.6.0.11.nupkg.sha512",
     "C:\\Users\\Sleepy69\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.11\\microsoft.entityframeworkcore.abstractions.6.0.11.nupkg.sha512",

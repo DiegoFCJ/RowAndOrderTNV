@@ -101,50 +101,7 @@ public class EmailActivationLinkService {
 
         Long userIdToUpdate = vTokenFromDb.getUser().getId();
         enbaleUser(userIdToUpdate);
-        return "<style>
-                .cont{
-                    position: relative;
-                    width: 100%;
-                    height: 100vh;
-                }
-
-                .tit{
-                    font-size: 80px;
-                    position: absolute;
-                    top: 20%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-
-                .tex{
-                    font-size: 40px;
-                    position: absolute;
-                    top: 40%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-
-                .but{
-                    border-radius: 50px;
-                    font-size: 40px;
-                    position: absolute;
-                    top: 60%; 
-                    left: 50%;
-                    transform: translate(-50%, -50%);  
-                    color: white;
-                    background-color: red;
-                }
-
-                .but:hover{
-                    color: black;
-                }
-                </style>
-                <div class=\"cont\">
-                    <p class=\"tit\">Congratulazioni!!</p>
-                    <p class=\"tex\">Il tuo account é stato attivato!</p>
-                    <button class=\"but\" onclick=window.location.href=\"http://localhost:4200/login\";>Click for login</button>
-                </div>
-                ";
+        return "";
     }
 
     public String enbaleUser(Long userIdToUpdate){
@@ -155,3 +112,51 @@ public class EmailActivationLinkService {
     }
 
 }
+
+/*
+
+<style>
+    .cont{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .tit{
+        font-size: 80px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .tex{
+        font-size: 40px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .but{
+        border-radius: 50px;
+        font-size: 40px;
+        position: absolute;
+        top: 60%; 
+        left: 50%;
+        transform: translate(-50%, -50%);  
+        color: white;
+        background-color: red;
+    }
+
+    .but:hover{
+        color: black;
+    }
+    </style>
+    <div class=\"cont\">
+        <p class=\"tit\">Congratulazioni!!</p>
+        <p class=\"tex\">Il tuo account é stato attivato!</p>
+        <button class=\"but\" onclick=window.location.href=\"http://localhost:4200/login\";>Click for login</button>
+    </div>
+
+*/

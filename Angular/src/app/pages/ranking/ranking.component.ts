@@ -1,17 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { MovieAPIService } from 'src/services/movie-api.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/models/user';
 import { MatTableDataSource } from '@angular/material/table';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-const SBUrl = "http://localhost:8080/api/public";
-
-interface Friend {
-  nome: string,
-  cognome: string,
-  age: number,
-  id: number
-}
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ScoreService } from 'src/services/score.service';
 
 @Component({
   selector: 'app-ranking',
@@ -20,40 +11,17 @@ interface Friend {
 })
 
 export class RankingComponent implements OnInit {
-  usersOrdered!: User[];
-  dataSource: any;
+  displayedColumns = ["count", "username", "score", "data"];
 
-  constructor(private http: HttpClient, config: NgbModalConfig, private modalService: NgbModal) { }
-/*
-  @ViewChild(MatPaginator) paginator:any = MatPaginator;
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }*/
+  constructor(protected scoreServ: ScoreService, protected movieServ: MovieAPIService) { }
 
   ngOnInit(): void {
-    this.fetchAllUsers();
+    this.fetchAllScores();
   }
 
-
-  fetchAllUsers(){
-    this.http.get<User[]>(`http://localhost:4567/top10`).subscribe((data)=> {
-      this.usersOrdered = data;
-      this.dataSource = new MatTableDataSource(this.usersOrdered);
-      console.log(this.usersOrdered, this.dataSource);
+  fetchAllScores(){
+    this.scoreServ.fetchAllScores().subscribe((data)=> {
+      this.scoreServ.dataSource = new MatTableDataSource(data);
     });
-  }
-
-  displayedColumns = ["count", "userName", "score", "data"];
-
-  open(content: any) {
-		this.modalService.open(content);
-    }
-
-  openDelete(targetModal: any, friend: Friend) {
-      const deleteId = friend.id;
-      this.modalService.open(targetModal, {
-        backdrop: 'static',
-        size: 'lg'
-      });
   }
 }

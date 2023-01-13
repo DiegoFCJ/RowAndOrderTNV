@@ -2,7 +2,6 @@ export interface User {
   name: string;
   surname: string;
   username: string;
-  score?: string;
 }
 
 export interface LoginDTO {
@@ -18,20 +17,7 @@ export interface RegisterDTO {
   password: string;
 }
 
-export interface DatoToComment {
-  comment: string;
-  rating: number;
-  user_id: number;
-  movie_id: number
-}
-
-export interface ScoreInfo {
-  userId: number;
-  userName: string;
-  score: number
-}
-
-export interface UserLocalSt {
+export interface UserFull {
   id: number;
   name: string;
   surname: string;

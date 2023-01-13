@@ -1,3 +1,10 @@
+export interface MovieData {
+  comment: String,
+  userId?: number,
+  movieId?: number,
+  rating?: number
+}
+
 export interface MovieRootObject {
     adult: boolean;
     backdrop_path: string;

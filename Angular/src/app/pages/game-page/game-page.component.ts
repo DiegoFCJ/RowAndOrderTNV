@@ -1,12 +1,12 @@
-import { UserLocalSt } from '../../../models/user';
+import { UserFull } from '../../../models/user';
 import { AuthService } from 'src/services/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
-import { MovieRootObject } from 'src/models/movies';
+import { Component, OnInit } from '@angular/core';
+import { MovieRootObject } from 'src/models/movie';
 import { MovieAPIService } from 'src/services/movie-api.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
-import { ScoreInfo, User } from 'src/models/user';
+import { ScoreService } from 'src/services/score.service';
 
 
 @Component({
@@ -15,77 +15,79 @@ import { ScoreInfo, User } from 'src/models/user';
   styleUrls: ['./game-page.component.scss'],
 })
 export class GamePageComponent implements OnInit {
+  attributes = ['revenue', 'release_date', 'popularity'];
   stringCondPrint: string = "";
+  currentUser: Partial<UserFull> = this.authServ.getCurrentUser();
+  randomMovies: MovieRootObject[] = [];
 
-  constructor(private http: HttpClient, protected MovieServ: MovieAPIService, private router: Router, protected authServ: AuthService) { }
-  currentUser: Partial<UserLocalSt> = this.authServ.getCurrentUser();
+  constructor(
+    protected movieServ: MovieAPIService, 
+    private router: Router, 
+    protected authServ: AuthService,
+    protected scoreServ: ScoreService) { }
+
 
   ngOnInit(): void {
     if (!this.authServ.isAuthenticated()) {
-      alert("You cannot access on this page without permission")
+      alert("Non puoi accedere a questa pagina senza permesso! Esegui l'accesso")
       this.router.navigateByUrl("/sign");
     }else{
-      this.MovieServ.rating;
-      const attributes = ['revenue', 'release_date', 'popularity'];
-      this.MovieServ.attribute = attributes[Math.floor(Math.random() * attributes.length)];
+      this.movieServ.rating;
+      this.movieServ.attribute = this.attributes[Math.floor(Math.random() * this.attributes.length)];
       for (let i = 0; i < 10; i++) {
-       this.getRandomMovie(this.MovieServ.attribute);
+       this.getRandomMovie(this.movieServ.attribute);
      }
-     console.log(this.movie + " " + this.MovieServ.attribute)
     }
   }
-
-  movie: MovieRootObject[] = [];   //array su questo component
 
   getRandomMovie(attributeS: any) {
     const latestId = 30000;
     const randomId = Math.round(Math.random() * latestId);
-    this.http.get<MovieRootObject>(`https://api.themoviedb.org/3/movie/${randomId}?api_key=3949444e64e7a9355250d3b1b5c59bf1&language=it-it`)
-      .subscribe({next: (res) => {
+    this.movieServ.getMovie(randomId).subscribe({
+    next: (res) => {
+      if (res.poster_path) {
+        this.randomMovies.push(res); 
+        this.movieServ.ordMovies.push(res);
+        this.movieServ.ordMovies.sort((a: any, b: any) => a[attributeS] > b[attributeS] ? 1 : b[attributeS] > a[attributeS] ? -1 : 0)
+      } else {
+        this.getRandomMovie(attributeS);
+      }
+    },
 
-          if (res.poster_path) {
-            this.movie.push(res); 
-            this.MovieServ.orderedMoviz.push(res);
-            this.MovieServ.orderedMoviz.sort((a: any, b: any) =>
-              a[attributeS] > b[attributeS] ? 1 : b[attributeS] > a[attributeS] ? -1 : 0)
-          } else {
-            this.getRandomMovie(attributeS);
-          }
-        },
-        error: () => {
-          this.getRandomMovie(attributeS);
-        },
-      });
+    error: () => {
+      this.getRandomMovie(attributeS);
+    },
+
+    });
   }
 
-
   drop(event: CdkDragDrop<{ title: string; poster: string }[]>) {
-    moveItemInArray(this.movie, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.randomMovies, event.previousIndex, event.currentIndex);
   }
 
   checkResult() {
-    this.router.navigate(['/review-page']);
+    this.router.navigate(['/review']);
+
     for (let i = 0; i < 10; i++) {
-      if (this.movie[i] === this.MovieServ.orderedMoviz[i]) {
-        this.MovieServ.rating = this.MovieServ.rating + 10;
+      if (this.randomMovies[i] === this.movieServ.ordMovies[i]) {
+        this.movieServ.rating = this.movieServ.rating + 10;
       }
     }
 
-    let scoreComp: ScoreInfo = {
+    this.scoreServ.scoreForDB = {
       userId: this.authServ.getCurrentUser().id,
       userName: this.authServ.getCurrentUser().username,
-      score: this.MovieServ.rating
-
+      score: this.movieServ.rating
     }
 
-    this.http.post<ScoreInfo>(`http://localhost:4567/score`, scoreComp).subscribe()
+    this.scoreServ.saveNewScore().subscribe();
   }
 
   printGameType(){
-    if(this.MovieServ.attribute === "release_date"){
+    if(this.movieServ.attribute === "release_date"){
       this.stringCondPrint = "piú vecchio";
       return "data di rilascio"
-    } else if(this.MovieServ.attribute === "revenue"){
+    } else if(this.movieServ.attribute === "revenue"){
       this.stringCondPrint = "film con meno fatturato";
       return "fatturato"
     }

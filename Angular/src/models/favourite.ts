@@ -1,18 +1,9 @@
-export interface MovieData {
-    comment: String,
+export interface Favourite {
     userId?: number,
     movieId?: number,
-    rating?: number
   }
 
-export interface FavData {
-    
-    userId?: number,
-    movieId?: number,
-    
-  }
-
-  export interface FullFavourite{
+  export interface FavMovie{
     id: number,
     comment: string,
     userId: number,

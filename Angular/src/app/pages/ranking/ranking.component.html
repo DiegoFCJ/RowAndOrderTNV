@@ -7,15 +7,15 @@
 <div id="rank" class="mat-elevation-z8">
 
 
-    <table mat-table #table [dataSource]="usersOrdered">
+    <table mat-table #table [dataSource]="scoreServ.dataSource">
 
         <ng-container matColumnDef="count">
             <th mat-header-cell *matHeaderCellDef> # </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+            <td mat-cell *matCellDef="let element; let i = index"> {{movieServ.indexSaveToFindFilm(i + 1)}} </td>
         </ng-container>
-        <ng-container matColumnDef="userName">
+        <ng-container matColumnDef="username">
             <th mat-header-cell *matHeaderCellDef> Giocatore </th>
-            <td mat-cell *matCellDef="let element"> {{element.userName | titlecase}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.username | titlecase}} </td>
         </ng-container>
 
         <ng-container matColumnDef="score">

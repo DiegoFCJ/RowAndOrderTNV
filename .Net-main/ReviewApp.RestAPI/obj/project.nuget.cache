@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gxjYMp41P7r9qdAuYLtQlu8uQjjkBcNsAdSY7XgeKYiRzHZcradUcIfSisvc23eYP6IHsbt7X2IqfmXnEflt9w==",
+  "dgSpecHash": "sABZX9QyJqUTyTE4cA5Qt7atpms7wG6EeywSNbnfZlZR52cceOD04ynqw99IpBwqJVB/QhdmvLMGmweiuqdO+w==",
   "success": true,
-  "projectFilePath": "C:\\PROGRAMMAZIONE\\repositoryGitHub\\Row And Order\\Dotnet\\.Net-main\\ReviewApp.RestAPI\\ReviewApp.RestAPI.csproj",
+  "projectFilePath": "C:\\PROGRAMMAZIONE\\repositoryGitHub\\Row & Order\\Row-Order\\.Net-main\\ReviewApp.RestAPI\\ReviewApp.RestAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sleepy69\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.9\\microsoft.aspnet.cors.5.2.9.nupkg.sha512",
     "C:\\Users\\Sleepy69\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",

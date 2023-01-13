@@ -20,13 +20,12 @@ import { GamePageComponent } from './pages/game-page/game-page.component';
 import { ReviewPageComponent } from './pages/review-page/review-page.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RankingComponent } from './pages/ranking/ranking.component';
+import { SignPageComponent } from './pages/sign-page/sign-page.component';
 
-import { HeroComponent } from './components/hero/hero.component';
 import { NavBeforeLogComponent } from './components/navbars/navbar-before-log/nav-before-log.component';
 import { NavAfterLogComponent } from './components/navbars/nav-after-log/nav-after-log.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ButtonComponent } from './components/button/button.component';
-import { LogRegPageComponent } from './pages/log-reg-page/log-reg-page.component';
 
 
 @NgModule({
@@ -37,12 +36,11 @@ import { LogRegPageComponent } from './pages/log-reg-page/log-reg-page.component
     ReviewPageComponent,
     RankingComponent,
     NavBeforeLogComponent,
-    HeroComponent,
     NavAfterLogComponent,
     LogoutComponent,
     ProfileComponent,
     ButtonComponent,
-    LogRegPageComponent,
+    SignPageComponent,
   ],
   imports: [
     BrowserModule,

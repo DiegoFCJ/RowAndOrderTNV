@@ -1,4 +1,4 @@
-import { LogRegPageComponent } from './pages/log-reg-page/log-reg-page.component';
+import { SignPageComponent } from './pages/sign-page/sign-page.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,12 +10,12 @@ import { RankingComponent } from './pages/ranking/ranking.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
-  { path: 'game-page', component: GamePageComponent },
-  { path: 'review-page', component: ReviewPageComponent },
-  { path: 'main-page', component: MainPageComponent },
+  { path: 'home', component: MainPageComponent },
+  { path: 'game', component: GamePageComponent },
+  { path: 'review', component: ReviewPageComponent },
   { path: 'ranking', component: RankingComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'sign', component: LogRegPageComponent }
+  { path: 'sign', component: SignPageComponent }
 ];
 
 @NgModule({

@@ -16,10 +16,10 @@ export class MainPageComponent implements OnInit {
   
   redirect() {
     if (!this.authServ.isAuthenticated()) {
-      alert("You cannot access on this page without permission")
+      alert("Non puoi accedere a questa pagina senza permesso! Esegui l'accesso")
       this.router.navigateByUrl("/sign");
     }else{
-      this.router.navigate(['game-page']);
+      this.router.navigate(['game']);
     }
   }
 }

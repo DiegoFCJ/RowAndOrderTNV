@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mHx+iyBR58QporspvrXYYvT6EZhAdWRz5dkMUnCpamxSSPhcRs+BIFle2sU7jABkM/2L3Zr0eBoHXolw8SQkmQ==",
+  "dgSpecHash": "oBWMYF0pUlZv1rXTBOWuKPoBeJR/QFxbsXyIpPNjp7nRwacc+bdYZOI43mpNOMvodtxWeUGzESuyKOInhcjMog==",
   "success": true,
-  "projectFilePath": "C:\\PROGRAMMAZIONE\\repositoryGitHub\\Row And Order\\Dotnet\\.Net-main\\ReviewApp.DB\\ReviewApp.DB.csproj",
+  "projectFilePath": "C:\\PROGRAMMAZIONE\\repositoryGitHub\\Row & Order\\Row-Order\\.Net-main\\ReviewApp.DB\\ReviewApp.DB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sleepy69\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Sleepy69\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.11\\microsoft.entityframeworkcore.6.0.11.nupkg.sha512",

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MovieRootObject } from 'src/models/movies';
+import { MovieRootObject } from 'src/models/movie';
 import { AuthService } from 'src/services/auth.service';
 
 
@@ -10,7 +10,7 @@ import { AuthService } from 'src/services/auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'TNVLezioni';
+  title = 'TNVFinalProjectVIII';
 
   constructor(protected authService: AuthService) {}
 
