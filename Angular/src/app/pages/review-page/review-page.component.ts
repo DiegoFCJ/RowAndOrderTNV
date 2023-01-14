@@ -13,7 +13,7 @@ import { CommentService } from 'src/services/comment.service';
   providers: [NgbModalConfig, NgbModal],
 })
 export class ReviewPageComponent implements OnInit {
-  currentRate= 2;
+  currentRate = 2;
 
   constructor(
     config: NgbModalConfig, 
@@ -45,6 +45,7 @@ export class ReviewPageComponent implements OnInit {
   }
 
   playAgain(){
+    this.movieServ.ordMovies.length = 0;
     this.router.navigate(['game']);
   }
 

@@ -21,12 +21,17 @@ public class User  implements UserDetails{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id", nullable = false)
     private Long id;
+
     private String name;
     private String surname;
+
+    
     @Column(nullable = false, unique = true)
     private String email;
+
     @Column(nullable = false, unique = true)
     private String username;
+
     private String password;
     private String roles;
     private boolean isEnabled = false;

@@ -30,8 +30,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .userDetailsService(myUserDetailsService)
-                .formLogin().permitAll()
-                .and().headers(headers -> headers.frameOptions().sameOrigin())
+                .headers(headers -> headers.frameOptions().sameOrigin())
                 .httpBasic(withDefaults())
                 .build();
     }
