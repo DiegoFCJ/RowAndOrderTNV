@@ -48,5 +48,4 @@ export class ReviewPageComponent implements OnInit {
     this.movieServ.ordMovies.length = 0;
     this.router.navigate(['game']);
   }
-
 }

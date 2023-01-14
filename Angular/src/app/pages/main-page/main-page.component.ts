@@ -13,8 +13,8 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
-  redirect() {
+  //in caso non ci sia utente loggato da un alert se si preme il tasto gioca
+  redirectNotLogged() {
     if (!this.authServ.isAuthenticated()) {
       alert("Non puoi accedere a questa pagina senza permesso! Esegui l'accesso")
       this.router.navigateByUrl("/sign");

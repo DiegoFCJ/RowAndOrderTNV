@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize({
-  database: "rowordproj",
+  database: "favouritesdb",
   username: "root",
-  password: "1q2w3e4r5t",
+  password: "root",
   host: "localhost",
   port: 3306,
   dialect: "mysql",
