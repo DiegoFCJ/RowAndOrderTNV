@@ -15,9 +15,9 @@ export class AuthService {
     return this.http.post<Partial<LoginDTO>>(`${this.springBootUrl}/signIn`, loginData);
   }
 
-  register(registerData: RegisterDTO) {
-    window.location.reload();
-    return this.http.post<RegisterDTO>(`${this.springBootUrl}/signUp`,registerData);
+  register(registerData: RegisterDTO) {/*
+    window.location.reload();*/
+    return this.http.post<RegisterDTO>(`${this.springBootUrl}/signUp`, registerData);
   }
 
   logout() {

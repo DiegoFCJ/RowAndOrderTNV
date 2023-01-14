@@ -10,6 +10,7 @@ import { MovieAPIService } from 'src/services/movie-api.service';
   styleUrls: ['./sign-page.component.scss']
 })
 export class SignPageComponent implements OnInit {
+  submitted: boolean = false;
 
   constructor(private authServ: AuthService, private router: Router, protected movieSer: MovieAPIService) {}
 
@@ -21,9 +22,12 @@ export class SignPageComponent implements OnInit {
   }
   
   register(form: NgForm) {
-    console.log(form.value)
-    if (form.valid) {
-      this.authServ.register(form.value).subscribe();
+    if(form.valid) {
+      this.authServ.register(form.value).subscribe({
+        next: (response) => {
+          console.log(response)
+        }
+      });
     }
   }
 
@@ -37,6 +41,19 @@ export class SignPageComponent implements OnInit {
           this.router.navigateByUrl("/home");
         }
       })
+    }
+  }
+
+  isFormValid(form: NgForm){
+    this.submitted = true;
+    // stop here if form is invalid
+    if (form.invalid) {
+      alert("nulla sta funzionando eja!!");
+    }
+    //false if all the fields are filled
+    if(this.submitted)
+    {
+      alert("e funziona tutto!!");
     }
   }
 }
