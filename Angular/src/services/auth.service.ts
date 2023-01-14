@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginDTO, RegisterDTO, UserFull } from 'src/models/user';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
@@ -10,15 +9,14 @@ import { of } from 'rxjs';
 export class AuthService {
   springBootUrl: string = 'http://localhost:8080/api/public';
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   login(loginData: LoginDTO) {
     return this.http.post<Partial<LoginDTO>>(`${this.springBootUrl}/signIn`, loginData);
   }
 
   register(registerData: RegisterDTO) {
-    window.location.reload()
-    this.router.navigateByUrl('/sign');
+    window.location.reload();
     return this.http.post<RegisterDTO>(`${this.springBootUrl}/signUp`,registerData);
   }
 
