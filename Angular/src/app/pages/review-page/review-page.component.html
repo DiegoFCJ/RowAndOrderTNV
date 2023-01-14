@@ -23,8 +23,8 @@
       <div class="card-img">
         <button class="close-btn" (click)="d('close-click')">❌</button>
         <img class="img-fluid rounded-start" src="https://image.tmdb.org/t/p/w185/{{movieServ.ordMovies[movieServ.num].poster_path}}">
-        <div class="scale"><app-button class="btn-l" btn_text="Review" (click)="movieServ.openTemplAndSetMovieId(content, movieServ.ordMovies[movieServ.num].id)"></app-button></div>
-        <div class="scale"><app-button class="btn-r" btn_text="Details" (click)="movieServ.openTempl(details)"></app-button></div>
+        <div class="scale"><app-button class="btn-l" btn_text="Commenta" (click)="movieServ.openTemplAndSetMovieId(content, movieServ.ordMovies[movieServ.num].id)"></app-button></div>
+        <div class="scale"><app-button class="btn-r" btn_text="Dettagli" (click)="movieServ.openTempl(details)"></app-button></div>
       </div>
     </div>
   </div>
@@ -59,9 +59,9 @@
           <hr />
           <pre>Voto: <b>{{currentRate}}</b></pre>
           <mat-form-field class="review" appearance="fill">
-            <input placeholder="This Film Is Wonderful! I love It!!" matInput type="text" ngModel name="comment" required />
+            <input placeholder="Lascia qui il tuo commento" matInput type="text" ngModel name="comment" required />
           </mat-form-field>
-            <app-button class="btn-cent" btn_text="Save" type="submit" (click)="c('Save click')"></app-button>
+            <app-button class="btn-cent" btn_text="Salva" type="submit" (click)="c('Save click')"></app-button>
         </form>
       </div>
     
