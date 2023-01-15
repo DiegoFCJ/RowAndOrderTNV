@@ -9,12 +9,12 @@ namespace ReviewApp.DB
 {
     public class MySqlStorageService : StorageService
     {
-        private ApplicationContext _contex;
+        private ApplicationContext _context;
 
         public MySqlStorageService()
         {
-            _contex = new();
-            _contex.Database.EnsureCreated();
+            _context = new();
+            _context.Database.EnsureCreated();
         }
 
         public Review CreateReview(string comment, int userId, int movieId, int rating)
@@ -26,8 +26,8 @@ namespace ReviewApp.DB
                 MovieId = movieId,
                 Rating = rating
             };
-            _contex.Reviews.Add(reviewToCreate);
-            _contex.SaveChanges();
+            _context.Reviews.Add(reviewToCreate);
+            _context.SaveChanges();
 
             return ReviewEntityMapper.From(reviewToCreate);
 
@@ -36,13 +36,13 @@ namespace ReviewApp.DB
         public bool DeleteReview(int reviewId)
         {
             var reviewToDelete = GetReviewOrFail(reviewId);
-            _contex.Reviews.Remove(reviewToDelete);
-            _contex.SaveChanges();
+            _context.Reviews.Remove(reviewToDelete);
+            _context.SaveChanges();
             return true;
         }
 
         public List<Review> GetReview() =>
-            _contex.Reviews.Select(reviewEntry => ReviewEntityMapper.From(reviewEntry)).ToList();
+            _context.Reviews.Select(reviewEntry => ReviewEntityMapper.From(reviewEntry)).ToList();
 
         public Review GetReview(int reviewId)
         {
@@ -57,13 +57,13 @@ namespace ReviewApp.DB
             reviewToUpdate.UserId = userId;
             reviewToUpdate.MovieId = movieId;
             reviewToUpdate.Rating = rating;
-            _contex.SaveChanges();
+            _context.SaveChanges();
             return ReviewEntityMapper.From(reviewToUpdate);
         }
 
         private ReviewEntity GetReviewOrFail(int reviewId)
         {
-            var r = _contex.Reviews.Find(reviewId);
+            var r = _context.Reviews.Find(reviewId);
 
             if (r == null) throw new ReviewNotFoundException(reviewId);
             return r;

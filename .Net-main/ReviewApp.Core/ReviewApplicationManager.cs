@@ -8,7 +8,6 @@ namespace ReviewApp.Core
 {
     public class ReviewApplicationManager
     {
-
         StorageService _storageService;
 
         public ReviewApplicationManager(StorageService storageService)
@@ -17,8 +16,6 @@ namespace ReviewApp.Core
         }
 
         public List<Review> GetAllReviews() => _storageService.GetReview();
-
-      
 
         public Review GetReview(int reviewId) => _storageService.GetReview(reviewId);
 
