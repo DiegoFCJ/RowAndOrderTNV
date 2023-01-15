@@ -67,14 +67,6 @@ public class JpaUserDetailsService implements UserDetailsService {
         throw new UsernameOrEmailAlreadyExistException("Username or Email already exists, try again!");
     }
 
-    public User signAdmin(){
-        if(!userRepo.adminAutoCreate("ADMIN")){
-            User adminUser = new User("ADMIN");
-            return userRepo.save(adminUser);
-        }
-        throw new UsernameOrEmailAlreadyExistException("Admin is already in db");
-    }
-
     public void save(User user){
         userRepo.save(user);
     }

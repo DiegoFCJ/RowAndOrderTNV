@@ -8,7 +8,7 @@
         <img src="{{movieServ.getMoviePosterPath(movieEl.poster_path)}}" class="card-img"/>
         <div class="card-img-overlay">
           <div class="scale">
-            <app-button btn_text="Review" (click)="movieServ.openOneFav(content, movieServ.getFavMovieByMovieId(movieEl.id))"></app-button>
+            <app-button btn_text="Dettagli" (click)="movieServ.openOneFav(content, movieServ.getFavMovieByMovieId(movieEl.id))"></app-button>
           </div>
         </div>
         <div class="card-footer">
@@ -24,13 +24,13 @@
       <h4>{{movieServ.singleFavourite.title}}</h4>
       <button class="close-btn" type="button" (click)="d('Cross click')">❌</button>
       <hr>
-      <p>Vote</p>
+      <p>Voto</p>
       <ngb-rating class="rating" [(rate)]="movieServ.singleFavourite.rating"></ngb-rating>
       <hr>
-      <p>Comment</p>
+      <p>Commento</p>
       <p class="review">{{movieServ.singleFavourite.comment}}</p>
       <div class="del-btn">
-        <app-button btn_text="Delete" (click)="deleteFavourite()" (click)="d('Cross click')"></app-button>
+        <app-button btn_text="Elimina" (click)="deleteFavourite()" (click)="d('Cross click')"></app-button>
       </div>
     </div>
     

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.security.spec.InvalidParameterSpecException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/public")
@@ -31,6 +33,7 @@ public class PublicUsersController {
 
     @PostMapping("/signIn")
     public ResponseEntity<User> signIn(@RequestBody User user) throws AccountNotFoundException, InvalidParameterSpecException {
+        Map<String, Object> map = new LinkedHashMap<>();
 
         User userFound = userService.signIn(user);
         boolean isUsernamePresent = userService.doesUsernameExists(user.getUsername());
@@ -38,35 +41,39 @@ public class PublicUsersController {
         boolean isEmailPresent = userService.doesEmailExists(user.getUsername());
 
         if(isUsernamePresent || isEmailPresent && isPasswordPresent){
+            map.put("status", 0);
+            map.put("data", userFound);
             return new ResponseEntity<>(userFound, HttpStatus.ACCEPTED);
         }
+        map.put("status", 0);
+        map.put("message", userFound.toString() + " doesn't exist");
         return new ResponseEntity<>(userFound, HttpStatus.UNAUTHORIZED);
 
     }
 
     @PostMapping("/signUp")
-    public ResponseEntity<User> signUp(@RequestBody User user) throws JsonProcessingException, MessagingException {
+    public ResponseEntity<?> signUp(@RequestBody User user) throws JsonProcessingException, MessagingException {
+        Map<String, Object> map = new LinkedHashMap<>();
+
         boolean isUsernamePresent = userService.doesUsernameExists(user.getUsername());
         boolean isEmailPresent = userService.doesEmailExists(user.getEmail());
 
         if(!isUsernamePresent && !isEmailPresent){
             ObjectMapper mapper = new ObjectMapper();
             String signedUser = userService.signUp(user);
-            activation.sendMail(user);/*
-            Map<String,Object> map = mapper.readValue(signedUser, Map.class);*/
-            return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+            activation.sendMail(user);
+            map.put("status", 0);
+            map.put("data", user);
+            return new ResponseEntity<>(map, HttpStatus.ACCEPTED);
         }
-        return new ResponseEntity<>(user, HttpStatus.CONFLICT);
+        map.put("status", 0);
+        map.put("message", user.toString() + " already exist");
+        return new ResponseEntity<>(map, HttpStatus.CONFLICT);
     }
 
     @GetMapping("/activation")
     public String activation(@RequestParam String token){
             return activation.confirmEmail(token);
-    }
-
-    @PostMapping("/signAdmin")
-    public void signAdmin(){
-        userService.signAdmin();
     }
 
     @GetMapping("/{id}")

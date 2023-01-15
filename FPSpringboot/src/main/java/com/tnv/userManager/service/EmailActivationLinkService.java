@@ -101,7 +101,70 @@ public class EmailActivationLinkService {
 
         Long userIdToUpdate = vTokenFromDb.getUser().getId();
         enbaleUser(userIdToUpdate);
-        return "";
+        return "" +
+                "<style>\n" +
+                "    *{\n" +
+                "        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\n" +
+                "    }\n" +
+                "\n" +
+                "    .testo p{\n" +
+                "        text-shadow: -2px 1px 3px rgb(30, 28, 28);\n" +
+                "        text-align: center;\n" +
+                "        position: absolute;\n" +
+                "        top: 30%;\n" +
+                "        left: 50%;\n" +
+                "        transform: translate(-50%);\n" +
+                "    }\n" +
+                "\n" +
+                "    .tit{\n" +
+                "        font-size: 80px;\n" +
+                "    }\n" +
+                "\n" +
+                "    .tex{\n" +
+                "        margin-top: 170px;\n" +
+                "        padding-bottom: 20px;\n" +
+                "        font-size: 40px;\n" +
+                "    }\n" +
+                "\n" +
+                "    .tasto {\n" +
+                "      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\n" +
+                "      cursor: pointer;\n" +
+                "      text-shadow: -2px 1px 3px rgb(30, 28, 28);\n" +
+                "      background-color: #c02936;\n" +
+                "      color: white;\n" +
+                "      padding: 30px;\n" +
+                "      border-radius: 20px;\n" +
+                "      font-size: 40px;\n" +
+                "      border: none;\n" +
+                "    }\n" +
+                "\n" +
+                "    .tasto-pos{\n" +
+                "      cursor: pointer;\n" +
+                "      position: absolute;\n" +
+                "      top: 60%;\n" +
+                "      left: 50%;\n" +
+                "      transform: translate(-50%);\n" +
+                "      transition: all 1s;\n" +
+                "    }\n" +
+                "\n" +
+                "    .tasto:hover{\n" +
+                "      cursor: pointer;\n" +
+                "      background-color: white;\n" +
+                "      color: #c02936;\n" +
+                "      box-shadow: -10px -6px 20px 2px red;\n" +
+                "  animation: reverse;\n" +
+                "    }\n" +
+                "\n" +
+                "    </style>\n" +
+                "\n" +
+                "<div class=\"testo\">\n" +
+                "    <p class=\"tit\">Congratulazioni!!</p>\n" +
+                "    <p class=\"tex\">Il tuo account é stato attivato!</p>\n" +
+                "</div>\n" +
+                "\n" +
+                "<div class=\"tasto-pos\" >\n" +
+                "    <button class=\"tasto\" onclick=window.location.href=\"http://localhost:4200/sign\";>Esegui Il Login</button>\n" +
+                "</div>";
     }
 
     public String enbaleUser(Long userIdToUpdate){
@@ -112,51 +175,68 @@ public class EmailActivationLinkService {
     }
 
 }
-
 /*
-
 <style>
-    .cont{
-        position: relative;
-        width: 100%;
-        height: 100vh;
+    *{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .testo p{
+        text-shadow: -2px 1px 3px rgb(30, 28, 28);
+        text-align: center;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%);
     }
 
     .tit{
         font-size: 80px;
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
 
     .tex{
+        margin-top: 170px;
+        padding-bottom: 20px;
         font-size: 40px;
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
 
-    .but{
-        border-radius: 50px;
-        font-size: 40px;
-        position: absolute;
-        top: 60%; 
-        left: 50%;
-        transform: translate(-50%, -50%);  
-        color: white;
-        background-color: red;
+    .tasto {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      cursor: pointer;
+      text-shadow: -2px 1px 3px rgb(30, 28, 28);
+      background-color: #c02936;
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      font-size: 40px;
+      border: none;
     }
 
-    .but:hover{
-        color: black;
+    .tasto-pos{
+      cursor: pointer;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%);
+      transition: all 1s;
     }
+
+    .tasto:hover{
+      cursor: pointer;
+      background-color: white;
+      color: #c02936;
+      box-shadow: -10px -6px 20px 2px red;
+  animation: reverse;
+    }
+
     </style>
-    <div class=\"cont\">
-        <p class=\"tit\">Congratulazioni!!</p>
-        <p class=\"tex\">Il tuo account é stato attivato!</p>
-        <button class=\"but\" onclick=window.location.href=\"http://localhost:4200/login\";>Click for login</button>
-    </div>
 
+<div class="testo">
+    <p class="tit">Congratulazioni!!</p>
+    <p class="tex">Il tuo account é stato attivato!</p>
+</div>
+
+<div class="tasto-pos" >
+    <button class="tasto" onclick=window.location.href="http://localhost:4200/sign";>Esegui Il Login</button>
+</div>
 */

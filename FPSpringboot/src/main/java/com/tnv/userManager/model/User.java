@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -15,40 +16,19 @@ import java.util.Collection;
 @Table(name = "users")
 public class User  implements UserDetails{
 
-    @Transient
-    PasswordEncoder enc = new BCryptPasswordEncoder();
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id", nullable = false)
     private Long id;
-
     private String name;
     private String surname;
-
-    
     @Column(nullable = false, unique = true)
     private String email;
-
     @Column(nullable = false, unique = true)
     private String username;
-
     private String password;
     private String roles;
     private boolean isEnabled = false;
 
-
-    public User() {}
-
-    public User(String role) {
-        String roleLowerCase = role.toLowerCase();
-        this.roles = role;
-        this.isEnabled = true;
-        this.name = roleLowerCase;
-        this.surname = roleLowerCase;
-        this.username = roleLowerCase;
-        this.email = roleLowerCase + "@TheBoss.com";
-        this.password = enc.encode(roleLowerCase);
-    }
 
     @Override
     public String getUsername() {
