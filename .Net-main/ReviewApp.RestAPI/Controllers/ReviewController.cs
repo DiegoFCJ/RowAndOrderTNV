@@ -8,20 +8,28 @@ using ReviewApp.RestAPI.Mapper;
 
 namespace ReviewApp.RestAPI.Controllers
 {
+    
+    /* Tramite le annotation la classe viene identificata come un REST Controller; ad ogni
+        metodo viene attribuita una chiamata http e una route.
+        Ogni API restituisce, in alternativa: 
+            - lo status code 200 e un JSON, in caso di buon fine della richiesta;
+            - uno status code della classe 400 e un messaggio di errore (proveniente dalla 
+            relativa eccezione) in caso di errori
+      */
+
     [ApiController]
-    [Route("reviews")]
+    [Route("reviews")]  
     public class ReviewController : ControllerBase
 
     {
-
         private ReviewApplicationManager _manager;
 
         public ReviewController(ReviewApplicationManager manager)
         {
-
             _manager = manager;
-
         }
+
+
 
         [HttpGet]
         public ActionResult<List<ReviewDto>> GetAllReviews() =>
@@ -30,7 +38,7 @@ namespace ReviewApp.RestAPI.Controllers
 
         [HttpGet]
         [Route("{review-id}")]
-        public ActionResult<ReviewDto> GetReviewById([FromRoute(Name = "review-id")] int reviewId)
+        public ActionResult<ReviewDto> GetReviewsById([FromRoute(Name = "review-id")] int reviewId)
         {
 
             try
@@ -45,7 +53,7 @@ namespace ReviewApp.RestAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult<ReviewDto> CreateRating([FromBody] ReviewRequest body)
+        public ActionResult<ReviewDto> CreateReview([FromBody] ReviewRequest body)
         {
             try
             {
@@ -56,10 +64,6 @@ namespace ReviewApp.RestAPI.Controllers
             catch (LongCommentException ex)
             {
                 return BadRequest(new ErrorResponse(ex.Message));
-            }
-            catch (IncorrectRatingException exc)
-            {
-                return BadRequest(new ErrorResponse(exc.Message));
             }
         }
         [HttpPut]
@@ -81,10 +85,6 @@ namespace ReviewApp.RestAPI.Controllers
             catch (LongCommentException ex)
             {
                 return BadRequest(new ErrorResponse(ex.Message));
-            }
-            catch (IncorrectRatingException exc)
-            {
-                return BadRequest(new ErrorResponse(exc.Message));
             }
 
         }
