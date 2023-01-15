@@ -23,11 +23,7 @@ export class SignPageComponent implements OnInit {
   
   register(form: NgForm) {
     if(form.valid) {
-      this.authServ.register(form.value).subscribe({
-        next: (response) => {
-          console.log(response)
-        }
-      });
+      this.authServ.register(form.value).subscribe();
     }
   }
 
@@ -41,19 +37,6 @@ export class SignPageComponent implements OnInit {
           this.router.navigateByUrl("/home");
         }
       })
-    }
-  }
-
-  isFormValid(form: NgForm){
-    this.submitted = true;
-    // stop here if form is invalid
-    if (form.invalid) {
-      alert("nulla sta funzionando eja!!");
-    }
-    //false if all the fields are filled
-    if(this.submitted)
-    {
-      alert("e funziona tutto!!");
     }
   }
 }
